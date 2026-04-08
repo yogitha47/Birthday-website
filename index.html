@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interactive Letter Experience</title>
+</head>
+
+<body style="
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:'Segoe UI', sans-serif;
+background: linear-gradient(135deg, #e9d5ff, #fbcfe8);
+position:relative;
+overflow-x:hidden;
+">
+
+<div style="text-align:center; z-index:1; max-width:420px;">
+
+<div style="
+background: rgba(255,255,255,0.5);
+padding:35px;
+border-radius:20px;
+backdrop-filter: blur(12px);
+box-shadow:0 0 30px rgba(200,150,255,0.3);
+color:#4b2e83;
+">
+
+<h1 style="margin-bottom:10px;">Welcome 💌</h1>
+
+<p style="font-size:15px; margin-bottom:15px;">
+An interactive web experience designed as a sequence of unlockable daily messages ✨
+</p>
+
+<hr style="border:none; height:1px; background:#d8b4f8; margin:15px 0;">
+
+<h3 style="margin-bottom:10px;">📜 How it works</h3>
+
+<p style="font-size:14px; line-height:1.6;">
+💜 There are multiple letters to unlock <br>
+💜 Each day reveals new content <br>
+💜 Solve a small challenge to unlock each one <br>
+💜 Progress gradually through the experience 💌  
+<br><br>
+✨ Designed to create a paced and engaging interaction
+</p>
+
+<button onclick="start()" style="
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background: linear-gradient(135deg, #f5d0fe, #fbcfe8);
+color:#6b21a8;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 15px rgba(200,150,255,0.4);
+transition:0.3s;
+"
+onmouseover="this.style.transform='scale(1.05)'"
+onmouseout="this.style.transform='scale(1)'"
+>
+Start Experience →
+</button>
+
+</div>
+</div>
+
+<script>
+function start(){
+window.location.href="days.html";
+}
+
+// 💜 floating hearts
+function createHeart(){
+const heart=document.createElement("div");
+heart.innerHTML="💜";
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"vw";
+heart.style.bottom="-20px";
+heart.style.fontSize=(Math.random()*10+15)+"px";
+heart.style.opacity=Math.random();
+heart.style.pointerEvents="none";
+document.body.appendChild(heart);
+
+let duration=Math.random()*3+4;
+
+heart.animate([
+{transform:"translateY(0)",opacity:1},
+{transform:"translateY(-100vh)",opacity:0}
+],{duration:duration*1000,easing:"linear"});
+
+setTimeout(()=>heart.remove(),duration*1000);
+}
+setInterval(createHeart,400);
+</script>
+
+</body>
+</html>

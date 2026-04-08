@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interactive Letter Experience</title>
+</head>
+
+<body style="
+margin:0;
+font-family:'Segoe UI', sans-serif;
+background: linear-gradient(135deg, #e9d5ff, #fbcfe8);
+position:relative;
+color:#4b2e83;
+">
+
+<div style="padding:30px; text-align:center; z-index:1;">
+
+<h1>Interactive Letter Experience 💌</h1>
+<p>A timed interactive web experience with daily unlockable content.</p>
+<p id="countdown" style="
+margin-top:10px;
+font-size:14px;
+color:#6b21a8;
+"></p>
+
+<!-- ✅ DAY BOXES -->
+<div id="envelopes" style="
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+max-width:500px;
+margin-left:auto;
+margin-right:auto;
+"></div>
+
+<!-- 🎮 GAME VIEW -->
+<div id="gameView" style="display:none; margin-top:30px;">
+<h2>Unlock Day <span id="gameDay"></span></h2>
+<p id="hintSection"></p>
+
+<div id="guessesContainer"></div>
+<div id="keyboard"></div>
+
+<button onclick="closeGame()">Back</button>
+</div>
+
+<!-- 💌 LETTER VIEW -->
+<div id="letterView" style="display:none; margin-top:30px;">
+<h2 id="letterTitle"></h2>
+<p id="letterDay"></p>
+<div id="letterText"></div>
+
+<button onclick="closeLetter()">Back</button>
+</div>
+
+</div>
+
+<script src="play.js"></script>
+
+<!-- 💜 FLOATING HEART ANIMATION -->
+<script>
+function createHeart(){
+const heart=document.createElement("div");
+heart.innerHTML="💜";
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"vw";
+heart.style.bottom="-20px";
+heart.style.fontSize=(Math.random()*10+15)+"px";
+heart.style.opacity=Math.random();
+heart.style.pointerEvents="none";
+document.body.appendChild(heart);
+
+let duration=Math.random()*3+4;
+
+heart.animate([
+{transform:"translateY(0)",opacity:1},
+{transform:"translateY(-100vh)",opacity:0}
+],{duration:duration*1000,easing:"linear"});
+
+setTimeout(()=>heart.remove(),duration*1000);
+}
+setInterval(createHeart,400);
+</script>
+
+<script src="letters.js"></script>
+<script src="play.js"></script>
+</body>
+</html>
