@@ -1,6 +1,8 @@
 # Birthday-website
 Interactive web application that delivers unlockable content through a puzzle-based system. Features day-wise progression, timed unlocking, and local storage for progress tracking. Built using HTML, CSS, and JavaScript, focusing on user interaction, state management, and engaging UI design.
 
+LINK: https://yogitha47.github.io/Birthday-website/
+
 💌 Interactive Letter Experience
 An interactive web application that delivers unlockable content through a puzzle-based and time-controlled progression system. Users unlock messages day by day by solving challenges, creating a paced and engaging experience.
 
